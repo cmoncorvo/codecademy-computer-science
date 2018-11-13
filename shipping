@@ -1,0 +1,45 @@
+def cost_ground(weight):
+  
+  if weight > 10:
+    price_per_pound = 4.75
+  elif weight > 6:
+    price_per_pound = 4
+  elif weight > 2:
+    prince_per_pound = 3
+  else:
+    price_per_pound = 1.5
+  return weight * price_per_pound + 20
+  
+print("$" + str(cost_ground(8.4)))
+
+cost_premium = 125
+
+def cost_drone(weight):
+  if weight > 10:
+    price_per_pound = 14.25
+  elif weight > 6:
+    price_per_pound = 12
+  elif weight > 2:
+    prince_per_pound = 9
+  else:
+    price_per_pound = 4.5
+  return weight * price_per_pound
+
+print("$" + str(cost_drone(1.5)))
+
+def best_price(weight):
+  
+  ground = cost_ground(weight)
+  drone = cost_drone(weight)
+  premium = cost_premium
+  if ground < drone and ground < premium:
+    method = "Standart Ground"
+    cost = ground
+  elif drone < ground and drone < premium:
+    method = "Drone"
+    cost = drone
+  else:
+    method = "Premium Ground"
+    cost = premium
+
+  print("The Shipment will cost $" + str(cost) + " in " + str(method))
